@@ -1,0 +1,19 @@
+- hosts: all
+  remote_user: dock-bot 
+  tasks:
+  - name:  "proxies >> /etc/environment"
+    blockinfile:
+      backup: yes # ok
+      path: /etc/environment # ok
+      create: yes
+      insertafter: EOF
+      state: present # the block should be present
+      #marker: "<!-- {mark} DO WHAT NOW -->"
+      marker: "# {mark}"
+      marker_begin: "proxy variables"
+      marker_end: "   "
+      block: |
+        http_proxy=http://proxy.server.domain.com:77777
+        https_proxy=https://proxy.server.domain.com:77777
+        no_proxy="localhost,.domain.com,127.0.0.0/8,172.16.0.0/20,192.168.0.0/16,10.0.0.0/8
+    become: true

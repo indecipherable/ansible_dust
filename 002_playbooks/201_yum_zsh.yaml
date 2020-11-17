@@ -1,0 +1,9 @@
+---
+- hosts: hyper-vms
+  remote_user: dock-bot
+  tasks:
+  - name: ensure zsh is installed
+    yum:
+      name: zsh
+      state: present
+    become: yes

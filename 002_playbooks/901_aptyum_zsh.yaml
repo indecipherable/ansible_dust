@@ -1,0 +1,18 @@
+---
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+    - name: install zsh
+      yum: 
+        name: zsh
+        state: present  
+      when: (ansible_facts['distribution'] == "CentOS") or
+            (ansible_facts['distribution'] == "RedHat") 
+      become: true
+    - name: install zsh
+      apt: 
+        name: zsh
+        state: present  
+      when: (ansible_facts['distribution'] == "Debian") or
+            (ansible_facts['distribution'] == "Ubuntu")
+      become: true

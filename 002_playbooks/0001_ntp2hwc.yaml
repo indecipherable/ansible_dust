@@ -1,0 +1,26 @@
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+  # ensure ntpdate executable is available
+  - name: "(apt) Ensure ntpdate is present"
+    apt:
+      autoclean: yes
+      update_cache: yes
+      name: ntpdate
+      state: present
+    when: (ansible_facts['distribution'] == "Debian") or
+          (ansible_facts['distribution'] == "Ubuntu")
+  - name: "(yum) Ensure ntpdate is present"
+    yum:
+      update_cache: yes
+      name: ntpdate
+      state: present
+    when: (ansible_facts['distribution'] == "CentOS") or
+          (ansible_facts['distribution'] == "Fedora") or
+          (ansible_facts['distribution'] == "RedHat")
+  # attempt to set sysclock with ntpdate
+  - name: "set sysclock from ntpdate"
+    shell: ntpdate "{ ntp_server }"
+  - name: "set hwclock"
+    shell: hwclock -w
+  become: yes

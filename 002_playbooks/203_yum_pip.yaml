@@ -1,0 +1,17 @@
+---
+- hosts: hyper-vms
+  remote_user: dock-bot
+  tasks:
+  - name: ensure pip2 is at the latest version
+    yum:
+      name: python2-pip
+      state: latest
+  - name: ensure python36-setuptools is installed
+    yum:
+      name: python36-setuptools
+      state: present
+    become: yes
+  - name: ensure pip36 is at the latest version
+    yum:
+      name: python36-pip
+      state: latest

@@ -1,0 +1,9 @@
+---
+- hosts: hyper-vms
+  remote_user: dock-bot
+  tasks:
+  - name: ensure python-twisted is installed
+    yum:
+      name: python-twisted-core
+      state: present
+    become: yes

@@ -1,0 +1,9 @@
+---
+- hosts: hyper-vms
+  remote_user: dock-bot
+  tasks:
+  - name: ensure puppet is installed
+    yum:
+      name: puppet 
+      state: latest
+    become: yes

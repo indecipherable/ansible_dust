@@ -1,0 +1,5 @@
+- hosts: matrixbaremetals 
+  remote_user: dock-bot
+  tasks:
+  - name: uptime
+    shell: uptime

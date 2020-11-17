@@ -1,0 +1,16 @@
+- hosts: matrixbaremetals
+  remote_user: dock-bot
+  tasks:
+  - name: "shell curl debian gpg"
+    shell: curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+    become: yes
+  - name: "add docker repo to system"
+    shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+    become: yes
+  - name: "apt install docker-ce from repo"
+    apt:
+      name: docker-ce
+      state: present
+    environment:
+      RUNLEVEL: 1
+    become: yes

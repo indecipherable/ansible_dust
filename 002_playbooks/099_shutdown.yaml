@@ -1,0 +1,6 @@
+- hosts: matrixbaremetals 
+  remote_user: dock-bot
+  tasks:
+  - name: "Do a shutdown"
+    shell: shutdown -h now
+  become: yes

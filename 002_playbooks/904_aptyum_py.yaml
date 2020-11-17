@@ -1,0 +1,23 @@
+- hosts: vms
+  remote_user: dock-bot
+  tasks:
+  - name: ensure pythons is at the latest version
+    apt:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+    - python
+    - python36u
+    when: (ansible_facts['distribution'] == "CentOS") or
+          (ansible_facts['distribution'] == "Fedora") or
+          (ansible_facts['distribution'] == "RedHat")
+  - name: ensure pythons is at the latest version
+    yum:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+    - python
+    - python3
+    when: (ansible_facts['distribution'] == "Debian") or
+          (ansible_facts['distribution'] == "Ubuntu")
+  become: yes

@@ -1,0 +1,14 @@
+---
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+  - name: ensure pip2 is at the latest version
+    pip:
+      name: pip
+      executable: pip2
+      state: latest
+  - name: ensure pip36 is at the latest version
+    pip:
+      name: pip
+      executable: pip3
+      state: latest

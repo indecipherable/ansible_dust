@@ -1,0 +1,26 @@
+---
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+  - name: ensure python2-openssl is absent
+    pip:
+      executable: pip2
+      name: pyopenssl 
+      state: absent
+  - name: ensure python2-crypto is absent
+    pip:
+      executable: pip2
+      name: pycrypto 
+      state: absent
+  - name: ensure python3-openssl is installed
+    pip:
+      executable: pip3
+      name: pyopenssl 
+      state: present
+      extra_args: --user
+  - name: ensure python3-crypto is installed
+    pip:
+      executable: pip3
+      name: pycrypto 
+      state: present
+      extra_args: --user

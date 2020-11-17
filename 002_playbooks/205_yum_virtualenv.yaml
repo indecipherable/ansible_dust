@@ -1,0 +1,8 @@
+---
+- hosts: hyper-vms
+  remote_user: dock-bot
+  tasks:
+  - name: Install virtualenv
+    pip:
+      name: virtualenv
+      state: present

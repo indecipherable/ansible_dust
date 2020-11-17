@@ -1,0 +1,12 @@
+---
+- hosts: matrixbaremetals
+  remote_user: nick_x
+  tasks:
+  - name: ensure python is at the latest version
+    apt:
+      name: python
+      state: latest
+  - name: ensure python3 is at the latest version
+    apt:
+      name: python3
+      state: latest

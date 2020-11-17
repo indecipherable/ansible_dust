@@ -1,0 +1,17 @@
+---
+- hosts: all
+  #remote_user: dock-bot
+  remote_user: nick_x
+  tasks:
+  - name: ensure python2-pip is latest
+    pip:
+      executable: pip
+      name: pip 
+      state: present
+      version: 19.1.1
+# - name: ensure python3-pip is latest
+#   pip:
+#     executable: pip3
+#     name: pip3
+#     state: present
+#     version: 19.1.1

@@ -1,0 +1,12 @@
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+  - name:  "\n >> /etc/hosts"
+    lineinfile:
+      backup: yes
+      path: ~/.bashrc
+      create: no
+      insertafter: EOF
+      line: "export PATH=$PATH:/opt/puppetlabs/bin"
+      state: present
+    become: false

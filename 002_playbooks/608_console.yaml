@@ -1,0 +1,22 @@
+### for debian/ubuntu only ###
+- hosts: all
+  remote_user: "{ ansible_user }"
+  tasks:
+  - name:  "console config >> /etc/default/grub"
+    blockinfile:
+      backup: yes # ok
+      path: /etc/default/grub # ok
+      create: no
+      insertafter: "GRUB_CMDLINE_LINUX_DEFAULT="
+      state: present # the block should be present
+      block: |
+        GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200"
+        GRUB_TERMINAL="console serial"
+        GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
+    become: true
+  - name:  "grub-mkconfig"
+    shell: grub2-mkconfig -o $(find /boot/ -name "grub.cfg")
+    become: true
+# - name:  "reboot"
+#   shell: reboot
+#   become: true

@@ -1,0 +1,15 @@
+---
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+  - name: ensure python2-twisted is removed
+    pip:
+      executable: pip2
+      name: twisted
+      #state: present
+      state: absent
+  - name: ensure python3-twisted is installed
+    pip:
+      executable: pip3
+      name: twisted
+      state: present

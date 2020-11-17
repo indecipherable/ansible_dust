@@ -1,0 +1,6 @@
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+  - name:  "puppet config set server"
+    shell: /opt/puppet/bin/puppet config set server 'puppet' --section main
+    become: true

@@ -1,0 +1,10 @@
+- hosts: vms
+  remote_user: nick_x
+  tasks:
+  - name: 
+    user:
+      name: testbunny
+      state: absent
+      # remove destroys files associated with account
+      remove: yes
+    become: true 

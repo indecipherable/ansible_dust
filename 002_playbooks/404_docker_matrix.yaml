@@ -1,0 +1,7 @@
+- hosts: matrixbaremetals 
+  remote_user: dock-bot
+  tasks:
+  - name: git clone docker-matrix
+    git:
+      repo: 'https://github.com/silvio/docker-matrix'
+      dest: ~/workspace/docker-matrix

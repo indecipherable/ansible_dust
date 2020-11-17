@@ -1,0 +1,9 @@
+---
+- hosts: matrixbaremetals
+  remote_user: dock-bot
+  tasks:
+  - name: ensure zsh is removed
+    apt:
+      name: zsh
+      state: absent
+    become: yes

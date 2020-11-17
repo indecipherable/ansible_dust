@@ -1,0 +1,6 @@
+- hosts: phy
+  remote_user: nick_x
+  tasks:
+  - name: "get time"
+    command: echo `hostname`
+  become: yes 

@@ -1,0 +1,9 @@
+---
+- hosts: hyper-vms
+  remote_user: dock-bot
+  tasks:
+  - name: ensure zsh is removed
+    yum:
+      name: zsh
+      state: absent
+    become: yes

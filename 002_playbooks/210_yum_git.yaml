@@ -1,0 +1,9 @@
+---
+- hosts: hyper-vms
+  remote_user: dock-bot
+  tasks:
+  - name: ensure git is installed
+    yum:
+      name: git
+      state: present
+    become: yes

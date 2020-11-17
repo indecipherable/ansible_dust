@@ -1,0 +1,13 @@
+---
+- hosts: matrixbaremetals
+  remote_user: dock-bot
+#  vars_prompt:
+#    - name: "some_password"
+#      prompt: "Enter password"
+#      private: yes
+  tasks:
+    - name: install zsh
+      apt: 
+        name: zsh
+        state: present  
+      become: true

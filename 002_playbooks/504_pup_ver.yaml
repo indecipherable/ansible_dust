@@ -1,0 +1,6 @@
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+  - name: check docker version
+    docker:
+      extra_args: -v

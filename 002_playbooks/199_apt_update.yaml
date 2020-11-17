@@ -1,0 +1,7 @@
+- hosts: matrixbaremetals
+  remote_user: dock-bot
+  tasks:
+  - name: "update apt-get update"
+    apt:
+      update_cache: yes
+    become: yes

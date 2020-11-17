@@ -1,0 +1,9 @@
+- hosts: vms
+  remote_user: nick_x
+  tasks:
+  - name: Create docker group
+    group:
+      name: docker
+      state: present
+      system: no
+    become: true 

@@ -1,0 +1,8 @@
+---
+- hosts: hyper-vms
+  remote_user: dock-bot
+  tasks:
+  - name: ensure python-twisted is installed
+    apt:
+      name: python-twisted
+      state: present

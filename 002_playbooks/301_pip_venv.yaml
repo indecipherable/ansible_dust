@@ -1,0 +1,15 @@
+---
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+#  - name: ensure python2-crypto is absent
+#    pip:
+#      executable: pip2
+#      name: pycrypto 
+#      state: absent
+  - name: ensure virtualenv is installed
+    pip:
+      executable: pip3
+      name: virtualenv
+      state: present
+      extra_args: --user

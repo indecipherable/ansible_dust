@@ -1,0 +1,7 @@
+- hosts: matrixbaremetals 
+  remote_user: dock-bot
+  tasks:
+  - name: git clone twisted_smoke
+    git:
+      repo: 'https://github.com/indecipherable/twisted_smoke'
+      dest: ~/workspace/twisted_smoke

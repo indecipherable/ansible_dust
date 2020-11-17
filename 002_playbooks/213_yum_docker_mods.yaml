@@ -1,0 +1,24 @@
+- hosts: hyper-vms
+  remote_user: dock-bot
+  tasks:
+  - name: "yum install docker prerequisite packages"
+    yum:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - ca-certificates
+      - curl
+      - gnupg2
+      - yum-utils 
+      - device-mapper-persistent-data 
+      - lvm2
+    become: yes
+# # # lint for single docker repo # # #
+#  - name: "wget docker-ce.repo to /etc/yum.repos.d/"
+#    command: wget "https://download.docker.com/linux/centos/docker-ce.repo" /etc/yum.repos.d/
+#    become: yes
+  - name: "yum update"
+      yum: 
+        list: repos
+        update_cache: yes
+   

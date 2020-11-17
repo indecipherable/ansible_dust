@@ -1,0 +1,9 @@
+---
+- hosts: matrixbaremetals
+  remote_user: dock-bot
+  tasks:
+  - name: ensure vim is installed
+    apt:
+      name: vim
+      state: present
+    become: yes

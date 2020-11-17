@@ -1,0 +1,32 @@
+---
+- hosts: ubu-20-no-data-00
+  remote_user: automage
+  tasks:
+    - name: fallocate swapfile
+      script: /usr/bin/sudo fallocate -l 2G /swapfile
+      become: yes
+      become_user: root
+    - name: chmod swapfile
+      script: /usr/bin/sudo chmod 600 /swapfile
+      become: yes
+      become_user: root
+    - name: mkswap
+      script: /usr/bin/sudo mkswap /swapfile
+      become: yes
+      become_user: root
+    - name: swapon swapfile
+      script: /sbin/swapon /swapfile
+      become: yes
+      become_user: root
+    - name: fstab backup
+      script: /usr/bin/sudo cp /etc/fstab /etc/fstab.bkp
+      become: yes
+      become_user: root
+    - name: fstab tattoo
+      script: /usr/bin/sudo echo '/swapfile none swap sw 0 0' >> /etc/fstab
+      become: yes
+      become_user: root
+    - name: sysctl swappiness
+      script: /usr/bin/sudo echo 'vm.swappiness=10' >> /etc/sysctl.conf
+      become: yes
+      become_user: root

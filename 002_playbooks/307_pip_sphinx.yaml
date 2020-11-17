@@ -1,0 +1,8 @@
+---
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+  - name: ensure sphinx is installed
+    pip:
+      name: sphinx
+      state: present

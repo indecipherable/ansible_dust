@@ -1,0 +1,6 @@
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+  - name: Run puppet agent and fail if anything goes wrong
+    puppet:
+      noop: certname

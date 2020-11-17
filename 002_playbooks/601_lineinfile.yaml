@@ -1,0 +1,31 @@
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+  - name:  "\n >> /etc/hosts"
+    lineinfile:
+      backup: yes
+      path: /etc/hosts
+      create: no
+      insertafter: EOF
+      line: ""
+      state: present
+    become: true
+  - name:  "# puppet master >> /etc/hosts"
+    lineinfile:
+      backup: yes
+      path: /etc/hosts
+      create: no
+      insertafter: EOF
+      line: "# puppet master"
+      state: present
+    become: true
+  - name: "# [ip] [hostname] puppet >> /etc/hosts"
+    lineinfile:
+      backup: yes
+      path: /etc/hosts
+      create: no
+      insertafter: EOF
+      line: "[ip] [hostname] puppet"
+      state: present
+    become: true
+      #

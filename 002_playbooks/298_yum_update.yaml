@@ -1,0 +1,15 @@
+- name: update cache
+  hosts: hyper-vms
+  become: true
+
+#  vars_prompt:
+#    - name: "some_password"
+#      prompt: "Enter password"
+#      private: yes
+
+  tasks:
+    - name: update cache
+      yum: 
+        list: repos
+        update_cache: yes
+   

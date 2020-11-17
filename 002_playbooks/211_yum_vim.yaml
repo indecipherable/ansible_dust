@@ -1,0 +1,9 @@
+---
+- hosts: hyper-vms
+  remote_user: dock-bot
+  tasks:
+  - name: ensure vim is installed
+    yum:
+      name: vim
+      state: present
+    become: yes

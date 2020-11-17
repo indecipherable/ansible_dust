@@ -1,0 +1,7 @@
+---
+- hosts: matrixbaremetals
+  tasks:
+  - name: make directory
+    file:
+      path: "/home/dock-bot/workspace"
+      state: directory

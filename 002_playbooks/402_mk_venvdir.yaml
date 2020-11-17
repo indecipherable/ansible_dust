@@ -1,0 +1,9 @@
+---
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+    - name: make venv_dir
+      file:
+        mode: 0744
+        name: ~/workspace/venv_dir
+        state: directory

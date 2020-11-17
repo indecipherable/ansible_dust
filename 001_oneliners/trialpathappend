@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+scriptdir=$(find / -name trial.py 2> /dev/null | grep python3 | sed s'/\/trial.py//')
+echo "export PATH=\$PATH:$scriptdir" >> ~/.bashrc

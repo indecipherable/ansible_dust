@@ -1,0 +1,8 @@
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+    - name: make workspace
+      file:
+        mode: 0744
+        name: ~/workspace
+        state: directory

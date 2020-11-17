@@ -1,0 +1,8 @@
+---
+- hosts: matrixbaremetals
+  remote_user: dock-bot
+  tasks:
+  - name: ensure pandas is installed
+    pip:
+      name: pandas
+      state: present

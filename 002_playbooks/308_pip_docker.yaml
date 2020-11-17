@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: dock-bot
+  tasks:
+  - name: ensure docker-compose is installed
+    pip:
+      executable: pip3
+      name: docker-compose
+      state: present
+    become: yes

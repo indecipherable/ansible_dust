@@ -1,0 +1,14 @@
+- hosts: matrixbaremetals
+  remote_user: dock-bot
+  tasks:
+  - name: "Apt setup docker prerequisites"
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg2
+      - software-properties-common
+    become: yes

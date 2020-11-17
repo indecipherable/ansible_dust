@@ -1,0 +1,53 @@
+# this depends on properly configured repos
+- hosts: vms
+  remote_user: dock-bot
+  tasks:
+  - name: ensure pips present for centhat
+    yum:
+      update_cache: yes
+      name: "{{ item }}"
+      state: latest
+    with_items:
+    - python2-pip
+    - python36-setuptools
+    - python36-pip
+    when: (ansible_facts['distribution'] == "CentOS") or
+          (ansible_facts['distribution'] == "RedHat")
+  - name: ensure pips LATEST VERSION for centhat
+    pip:
+      name: pip
+      executable: "{{ item }}"
+      state: latest
+    with_items:
+   #- pip36 #hmmmmm idk
+    - pip2
+    - pip
+    when: (ansible_facts['distribution'] == "CentOS") or
+          (ansible_facts['distribution'] == "RedHat")
+  - name: update apt cache
+    apt:
+      update_cache: yes
+    when: (ansible_facts['distribution'] == "Debian") or
+          (ansible_facts['distribution'] == "Ubuntu")
+  - name: ensure pips current version debuntu
+    apt:
+      update_cache: yes
+      name: "{{ item }}"
+      state: latest
+    with_items:
+    - python-pip
+    - python3-pip
+    when: (ansible_facts['distribution'] == "Debian") or
+          (ansible_facts['distribution'] == "Ubuntu")
+# - name: ensure pips LATEST VERSION for debuntu
+#   pip:
+#     name: pip
+#     executable: "{{ item }}"
+#     state: latest
+#   with_items:
+#   - pip3 
+#   - pip2
+#   - pip
+#   when: (ansible_facts['distribution'] == "Debian") or
+#         (ansible_facts['distribution'] == "Ubuntu")
+  become: yes

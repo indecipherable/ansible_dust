@@ -1,0 +1,11 @@
+---
+- hosts: matrixbaremetals
+  remote_user: dock-bot
+  tasks:
+  - name: ensure puppet is installed
+    apt:
+      name: puppet
+      #state: present
+      #state: latest
+      only-upgrade: yes
+    become: yes

@@ -1,0 +1,12 @@
+---
+- hosts: k-vms
+  remote_user: root
+#  vars_prompt:
+#    - name: "some_password"
+#      prompt: "Enter password"
+#      private: yes
+  tasks:
+    - name: install zsh
+      apt: 
+        update_cache: yes
+        cache_valid_time: 30

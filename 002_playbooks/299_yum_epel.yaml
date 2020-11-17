@@ -1,0 +1,14 @@
+- name: install epel
+  hosts: hyper-vms
+  become: true
+
+#  vars_prompt:
+#    - name: "some_password"
+#      prompt: "Enter password"
+#      private: yes
+
+  tasks:
+    - name: install epel
+      yum: 
+        name: epel-release
+        state: present 

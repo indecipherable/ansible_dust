@@ -1,0 +1,12 @@
+- hosts: matrixbaremetals
+  remote_user: dock-bot 
+  tasks:
+  - name: execute virtualenv python libraries
+    easy_install:
+      executable: easy_install
+      name: twisted
+      state: present
+      virtualenv: ~/workspace/venv_dir
+      virtualenv_command: virtualenv
+      virtualenv_site_packages: no
+    become: yes

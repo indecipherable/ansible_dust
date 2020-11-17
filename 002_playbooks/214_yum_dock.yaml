@@ -1,0 +1,10 @@
+- hosts: hyper-vms
+  remote_user: dock-bot
+  tasks:
+  - name: "yum install docker-ce from repo"
+    yum:
+      name: docker-ce
+      state: present
+    environment:
+      RUNLEVEL: 1
+    become: yes

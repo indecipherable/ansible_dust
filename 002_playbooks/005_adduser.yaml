@@ -1,0 +1,34 @@
+- hosts: vms
+  remote_user: nick_x
+  tasks:
+  - name: Create user login
+    user:
+      name: testbunny
+      password: '???'
+      groups:
+      - docker
+      - wheel
+      state: present
+      shell: /bin/bash
+      system: no
+      createhome: yes
+      home: /home/testbunny
+    when: (ansible_facts['distribution'] == "CentOS") or
+          (ansible_facts['distribution'] == "Fedora") or
+          (ansible_facts['distribution'] == "RedHat")
+    become: true 
+  - name: Create user login
+    user:
+      name: testbunny
+      password: '???'
+      groups:
+      - docker
+      - sudo
+      state: present
+      shell: /bin/bash
+      system: no
+      createhome: yes
+      home: /home/testbunny
+    when: (ansible_facts['distribution'] == "Debian") or
+          (ansible_facts['distribution'] == "Ubuntu")
+    become: true 
