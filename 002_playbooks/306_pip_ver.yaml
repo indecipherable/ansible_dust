@@ -1,7 +1,7 @@
 ---
-- hosts: all
-  #remote_user: dock-bot
-  remote_user: nick_x
+- hosts: my_hosts
+  #remote_user: phoenix_person
+  remote_user: phoenix_person
   tasks:
   - name: ensure python2-pip is latest
     pip:

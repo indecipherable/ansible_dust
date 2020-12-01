@@ -1,6 +1,6 @@
 ---
-- hosts: matrixbaremetals
-  remote_user: nick_x
+- hosts: my_hosts
+  remote_user: phoenix_person
   tasks:
   - name: ensure python is at the latest version
     apt:

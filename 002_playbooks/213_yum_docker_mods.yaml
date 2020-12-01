@@ -1,5 +1,5 @@
-- hosts: hyper-vms
-  remote_user: dock-bot
+- hosts: my_hosts
+  remote_user: phoenix_person
   tasks:
   - name: "yum install docker prerequisite packages"
     yum:

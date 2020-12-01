@@ -1,6 +1,6 @@
-- hosts: k-vms
+- hosts: my_hosts
   sudo: yes
-  remote_user: root
+  remote_user: phoenix_person
   gather_facts: no
   pre_tasks:
     - name: 'install python2'

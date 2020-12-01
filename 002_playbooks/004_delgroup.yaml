@@ -1,5 +1,5 @@
-- hosts: vms
-  remote_user: nick_x
+- hosts: my_hosts
+  remote_user: phoenix_person
   tasks:
   - name: Create docker group
     group:

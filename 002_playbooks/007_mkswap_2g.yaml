@@ -1,6 +1,6 @@
 ---
-- hosts: ubu-20-no-data-00
-  remote_user: automage
+- hosts: my_hosts
+  remote_user: phoenix_person
   tasks:
     - name: fallocate swapfile
       script: /usr/bin/sudo fallocate -l 2G /swapfile

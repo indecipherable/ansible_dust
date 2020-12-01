@@ -1,6 +1,6 @@
 # this depends on properly configured repos
-- hosts: vms
-  remote_user: dock-bot
+- hosts: my_hosts
+  remote_user: phoenix_person
   tasks:
   - name: ensure pips present for centhat
     yum:

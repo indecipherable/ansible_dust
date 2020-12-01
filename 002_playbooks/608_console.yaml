@@ -1,6 +1,6 @@
 ### for debian/ubuntu only ###
-- hosts: all
-  remote_user: "{ ansible_user }"
+- hosts: my_hosts
+  remote_user: phoenix_person
   tasks:
   - name:  "console config >> /etc/default/grub"
     blockinfile:

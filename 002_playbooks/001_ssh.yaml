@@ -1,5 +1,5 @@
 ---
-- hosts: matrixbaremetals
+- hosts: my_hosts
   tasks:
   - name: make directory
     file:

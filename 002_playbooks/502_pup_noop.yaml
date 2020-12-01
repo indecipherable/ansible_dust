@@ -1,5 +1,5 @@
-- hosts: all
-  remote_user: dock-bot
+- hosts: my_hosts
+  remote_user: phoenix_person
   tasks:
   - name: Run puppet agent and fail if anything goes wrong
     puppet:

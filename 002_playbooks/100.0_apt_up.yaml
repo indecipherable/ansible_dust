@@ -1,6 +1,6 @@
 ---
-- hosts: k-vms
-  remote_user: root
+- hosts: my_hosts
+  remote_user: phoenix_person
 #  vars_prompt:
 #    - name: "some_password"
 #      prompt: "Enter password"

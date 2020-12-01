@@ -1,6 +1,6 @@
 ---
-- hosts: hyper-vms
-  remote_user: dock-bot
+- hosts: my_hosts
+  remote_user: phoenix_person
   tasks:
   - name: ensure pip2 is at the latest version
     yum:

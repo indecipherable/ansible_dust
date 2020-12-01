@@ -1,5 +1,5 @@
-- hosts: no-data.info
-  remote_user: ubuntu
+- hosts: my_hosts
+  remote_user: phoenix_person
   tasks:
   - name: "shell curl ubuntu gpg"
     shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -

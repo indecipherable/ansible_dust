@@ -1,9 +1,9 @@
 ---
-- hosts: matrixbaremetals
+- hosts: my_hosts
   vars:
     http_port: 80
     max_clients: 200
-  remote_user: dock-bot
+  remote_user: phoenix_person
   tasks:
   - name: ensure apache is at the latest version
     apt:
